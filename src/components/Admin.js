@@ -99,6 +99,7 @@ export const Admin = () => {
 
         // The server is hosted locally on port 80
         axios.post('http://localhost:80/api/lesson/save', lessonFormDetails).then(async function(response) {
+            console.log(lessonFormDetails);
             setLessonFormDetails(lessonFormInitialDetails);
 
             if (response.status === 200) {
@@ -122,6 +123,9 @@ export const Admin = () => {
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link eventKey="second">Manage License</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="third">Check Exam Status</Nav.Link>
                     </Nav.Item>
                     </Nav>
                     <Tab.Content id="slideInUp">
@@ -249,6 +253,50 @@ export const Admin = () => {
                                             <td>
                                                 <Link to={`lesson/${lesson.id}/edit`} style={{marginRight: "10px"}}>Edit</Link>
                                                 <button onClick={() => deleteLesson(lesson.id)} className="delete-btn">Delete</button>
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </Table>
+                        </div>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="third">
+                        <div className="exam-admin">
+                            <Row>
+                                <Col xs={2} md={1} className="icon">
+                                    <People size={25}/>
+                                </Col>
+                                <Col xs={10} md={11}>
+                                    <h1>Exams</h1>
+                                </Col>
+                            </Row>
+                            <h6>Listings of users that registered for KPP test or driving exams</h6>
+                            <Table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Email</th>
+                                        <th>Date of Create</th>
+                                        <th>Date of Update</th>
+                                        <th>License Type</th>
+                                        <th>License Start Date</th>
+                                        <th>License End Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {users.map((user, key)=> 
+                                        <tr key={key}>
+                                            <td>{user.id}</td>
+                                            <td>{user.email}</td>
+                                            <td>{user.created_at}</td>
+                                            <td>{user.updated_at}</td>
+                                            <td>{user.license_type}</td>
+                                            <td>{user.valid_start}</td>
+                                            <td>{user.valid_end}</td>
+                                            <td>
+                                                <Link to={`user/${user.id}/edit`} style={{marginRight: "10px"}}>Edit</Link>
+                                                <button onClick={() => deleteUser(user.id)} className="delete-btn">Delete</button>
                                             </td>
                                         </tr>
                                     )}

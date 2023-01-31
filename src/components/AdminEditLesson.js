@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Form, Table, Button } from "react-bootstrap";
 import axios from 'axios';
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -56,75 +57,75 @@ export const AdminEditLesson = () => {
     return (
         <div className="edit">
             <h1>Edit Lesson's Details</h1>
-            <form onSubmit={handleSubmit}>
-                <table cellSpacing={10}>
+            <Form onSubmit={handleSubmit}>
+                <Table cellSpacing={10}>
                     <tbody>
                         <tr>
                             <th>
-                                <label>State: </label>
+                                <Form.Label>State: </Form.Label>
                             </th>
                             <td>
-                                <input value={inputs.state} type="text" onChange={(e)=> onFormUpdate('state', e.target.value)}/>
+                                <Form.Control value={inputs.state} type="text" onChange={(e)=> onFormUpdate('state', e.target.value)}/>
                             </td>
                         </tr>
                         <tr>
                             <th>
-                                <label>Lesson Type: </label>
+                                <Form.Label>Lesson Type: </Form.Label>
                             </th>
                             <td>
-                                <input value={inputs.type} type="text" onChange={(e)=> onFormUpdate('type', e.target.value)}/>
+                                <Form.Control value={inputs.type} type="text" onChange={(e)=> onFormUpdate('type', e.target.value)}/>
                             </td>
                         </tr>
                         <tr>
                             <th>
-                                <label>Status: </label>
+                                <Form.Label>Status: </Form.Label>
                             </th>
                             <td>
-                                <input value={inputs.status} type="text" onChange={(e)=> onFormUpdate('status', e.target.value)}/>
+                                <Form.Control value={inputs.status} type="text" onChange={(e)=> onFormUpdate('status', e.target.value)}/>
                             </td>
                         </tr>
                         <tr>
                             <th>
-                                <label>Venue: </label>
+                                <Form.Label>Venue: </Form.Label>
                             </th>
                             <td>
-                                <input value={inputs.venue} type="text" onChange={(e)=> onFormUpdate('venue', e.target.value)}/>
+                                <Form.Control value={inputs.venue} type="text" onChange={(e)=> onFormUpdate('venue', e.target.value)}/>
                             </td>
                         </tr>
                         <tr>
                             <th>
-                                <label>Start Date & Time: </label>
+                                <Form.Label>Start Date & Time: </Form.Label>
                             </th>
                             <td>
-                                <input value={inputs.start_time} type="datetime-local" onChange={(e)=> onFormUpdate('start_time', e.target.value)}/>
+                                <Form.Control value={inputs.start_time} type="datetime-local" onChange={(e)=> onFormUpdate('start_time', e.target.value)}/>
+                            </td>
+                        </tr>
+                        <tr>
+                        <th>
+                                <Form.Label>End Date & Time: </Form.Label>
+                            </th>
+                            <td>
+                                <Form.Control value={inputs.end_time} type="datetime-local" onChange={(e)=> onFormUpdate('end_time', e.target.value)}/>
                             </td>
                         </tr>
                         <tr>
                             <th>
-                                <label>End Date & Time: </label>
+                                <Form.Label>Available Slots No.: </Form.Label>
                             </th>
                             <td>
-                                <input value={inputs.end_time} type="datetime-local" onChange={(e)=> onFormUpdate('end_time', e.target.value)}/>
+                                <Form.Control value={inputs.slots} type="number" onChange={(e)=> onFormUpdate('slots', e.target.value)}/>
                             </td>
                         </tr>
                         <tr>
-                            <th>
-                                <label>Available Slots No.: </label>
-                            </th>
-                            <td>
-                                <input value={inputs.slots} type="number" onChange={(e)=> onFormUpdate('slots', e.target.value)}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colSpan={2} align="right"><button>Save</button></td>
+                            <td colSpan={2} align="right"><Button type="submit">Save</Button></td>
                         </tr>
                     </tbody>
-                </table>
+                </Table>
                 {
                     status.message &&
                     <p className={status.success === false ? "danger": "success"}>{status.message}</p>
                 }
-            </form>
+            </Form>
         </div>
     );
 }
