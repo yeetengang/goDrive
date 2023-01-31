@@ -18,3 +18,14 @@ Use the following command to start GoDrive:
 ```
 npm run start
 ```
+
+## Screenshots
+
+#### Home Page
+![home_page](https://github.com/yeetengang/goDrive/blob/main/images/HomePage.PNG?raw=true)
+
+#### Testimonia Page
+![testi_page](https://github.com/yeetengang/goDrive/blob/main/images/Testimonia.png?raw=true)
+
+#### Upcoming Lessons Page
+![lesson_page](https://github.com/yeetengang/goDrive/blob/main/images/UpcomingLesson.PNG?raw=true)
