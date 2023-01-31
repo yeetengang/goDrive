@@ -29,3 +29,25 @@ npm run start
 
 #### Upcoming Lessons Page
 ![lesson_page](https://github.com/yeetengang/goDrive/blob/main/images/UpcomingLesson.PNG?raw=true)
+
+## Features
+
+#### User / Student
+1. Show upcoming driving lessons updated by Admin
+2. Track registered user's license status
+3. Register driving or law exams.
+4. Show registered driving lessons details (Time, Lesson type, Venue)
+5. Send feedback email or contact admin.
+
+#### Admin
+1. Check registered users' details.
+2. Create and update lessons.
+3. Check users that registered for an exam.
+4. Update user's license type.
+5. Receive feedback email or contact from users.
+
+#### Upcoming Features
+1. Show registered exam status (Approved or Rejected)
+2. Add Map with marker to show driving center venue.
+3. Add driving coach or driving instructor panel.
+
